@@ -3,7 +3,7 @@ import React from "react";
 const Navbar = () => {
   return (
     <nav class="w-full h-content">
-      <div class="sticky h-14 top-0 inset-x-0 z-20 border-y px-4 sm:px-6 md:px-8 lg:hidden">
+      <div class="sticky h-14 top-0 z-20 border-y px-4 sm:px-6 md:px-8 lg:hidden">
         <div class="flex items-center py-4">
           <button
             type="button"
