@@ -1,9 +1,11 @@
-import React from "react";
-import Row from "./Row.js"
+import React, { useState } from "react";
+import Row from "./Row.js";
 import NewRow from "./NewRow.js";
 
 const Table = () => {
   const headings = ["Name", "Created by", "API key", "Status", "Created"];
+
+  const [visibleNewRow, setVisibleNewRow] = useState(false);
   return (
     <div className="w-full h-full p-6">
       <div className="w-full h-full">
@@ -23,9 +25,9 @@ const Table = () => {
 
                   <div>
                     <div class="inline-flex gap-x-2">
-                      <a
-                        class="py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
-                        href="/"
+                      <div
+                        class="cursor-pointer py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
+                        onClick={() => setVisibleNewRow(!visibleNewRow)}
                       >
                         <svg
                           class="w-3 h-3"
@@ -43,12 +45,12 @@ const Table = () => {
                           />
                         </svg>
                         Create
-                      </a>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                <table class="min-w-full divide-y divide-gray-200">
                   <thead>
                     <tr>
                       {headings.map((heading, index) => (
@@ -63,9 +65,8 @@ const Table = () => {
                       <th scope="col" class="px-6 py-3 text-right"></th>
                     </tr>
                   </thead>
-                  <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                    <NewRow/>
-                    <Row />
+                  <tbody class="divide-y divide-gray-200">
+                    {visibleNewRow && <NewRow />} <Row />
                   </tbody>
                 </table>
 

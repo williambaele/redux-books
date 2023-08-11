@@ -7,21 +7,25 @@ const NewRow = () => {
         <div class="px-6 py-3">
           <input
             type="text"
-            class="text-sm text-gray-600 py-1 pl-2 rounded-md outline-none"
+            class="text-sm text-gray-600 py-1 rounded-md outline-none"
             placeholder="Name"
           />
         </div>
       </td>
       <td class="h-px w-px whitespace-nowrap">
         <div class="px-6 py-3">
-          <input type="text" class="text-sm text-gray-600 py-1 pl-2 rounded-md outline-none" />
+          <input
+            type="text"
+            class="text-sm text-gray-600 py-1 rounded-md outline-none"
+            placeholder="Author"
+          />
         </div>
       </td>
       <td class="h-px w-px whitespace-nowrap">
         <div class="px-6 py-3">
           <button
             type="button"
-            class="inline-flex flex-shrink-0 justify-center items-center gap-x-2.5 py-2 px-2.5 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-white transition-all text-xs dark:bg-gray-800 dark:hover:bg-slate-800 dark:border-gray-700 py-1 pl-2 rounded-md outline-none dark:hover:text-white dark:focus:ring-gray-700 dark:focus:ring-offset-gray-800"
+            class="inline-flex flex-shrink-0 justify-center items-center gap-x-2.5 py-2 px-2.5 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-white transition-all text-xs pl-2 outline-none"
           >
             Copy Key
             <svg
@@ -64,22 +68,9 @@ const NewRow = () => {
       </td>
       <td class="h-px w-px whitespace-nowrap">
         <div class="px-6 py-3">
-          <a
-            class="py-1 px-2 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
-            href="/"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="#FFFFFF"
-              class="bi bi-check-lg"
-              viewBox="0 0 16 16"
-            >
-              <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
-            </svg>
+          <div class="py-1 px-2 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm ">
             Save
-          </a>
+          </div>
         </div>
       </td>
     </tr>
