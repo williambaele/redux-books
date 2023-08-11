@@ -9,10 +9,10 @@ function App() {
 
   return (
     <div className="flex flex-col h-screen md:flex-wrap">
-      <div className="max-w-full bg-purple-300 md:w-1/6 h-content">
+      <div className="max-w-full bg-gray-300 md:w-1/6 h-content">
         <Navbar  activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
       </div>
-      <div className="w-full h-full bg-green-300 md:w-5/6">
+      <div className="w-full h-full bg-gray-200 md:w-5/6">
         {activeMenu === "dashboard" ? <Table /> : <SearchBook />}
       </div>
     </div>
