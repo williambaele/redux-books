@@ -1,15 +1,19 @@
 // import Navbar from "./components/Navbar";
+import { useState } from "react";
 import Navbar from "./components/Navbar";
-import Table2 from "./components/Table2";
+import Table from "./components/Table";
+import SearchBook from "./components/SearchBook";
 
 function App() {
+  const [activeMenu, setActiveMenu] = useState("dashboard");
+
   return (
-    <div className="flex flex-col md:flex-wrap h-screen">
-      <div className="max-w-full md:w-1/5 h-content bg-purple-300">
-        <Navbar/>
+    <div className="flex flex-col h-screen md:flex-wrap">
+      <div className="max-w-full bg-purple-300 md:w-1/6 h-content">
+        <Navbar  activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
       </div>
-      <div className="w-full md:w-4/5 h-full bg-green-300">
-        <Table2/>
+      <div className="w-full h-full bg-green-300 md:w-5/6">
+        {activeMenu === "dashboard" ? <Table /> : <SearchBook />}
       </div>
     </div>
   );

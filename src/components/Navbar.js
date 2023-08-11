@@ -1,6 +1,6 @@
 import React from "react";
 
-const Navbar = () => {
+const Navbar = ({ activeMenu, setActiveMenu }) => {
   return (
     <nav class="w-full h-content">
       <div class="sticky h-14 top-0 z-20 border-y px-4 sm:px-6 md:px-8 lg:hidden">
@@ -59,9 +59,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div
-        class="hidden h-screen  z-[60] bg-gray-900 border-r border-gray-800 pt-7 pb-10   lg:block lg:translate-x-0 lg:right-auto lg:bottom-0"
-      >
+      <div class="hidden h-screen  z-[60] bg-gray-900 border-r border-gray-800 pt-7 pb-10   lg:block lg:translate-x-0 lg:right-auto lg:bottom-0">
         <div class="px-6">
           <a
             class="flex-none text-xl font-semibold text-white"
@@ -78,9 +76,13 @@ const Navbar = () => {
         >
           <ul class="space-y-1.5">
             <li>
-              <a
-                class="flex items-center gap-x-3 py-2 px-2.5 bg-gray-700 text-sm text-white rounded-md"
-                href="/"
+              <div
+                className={`flex items-center gap-x-3 py-2 px-2.5 text-sm rounded-md ${
+                  activeMenu === "dashboard"
+                    ? "bg-gray-700 text-white"
+                    : "text-gray-400 hover:bg-gray-800 hover:text-white-300"
+                }`}
+                onClick={() => setActiveMenu("dashboard")}
               >
                 <svg
                   class="w-3.5 h-3.5"
@@ -100,12 +102,16 @@ const Navbar = () => {
                   />
                 </svg>
                 Dashboard
-              </a>
+              </div>
             </li>
             <li>
-              <a
-                class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-400 rounded-md hover:bg-gray-800 hover:text-white-300"
-                href="/"
+              <div
+                className={`flex items-center gap-x-3 py-2 px-2.5 text-sm rounded-md ${
+                  activeMenu === "search"
+                    ? "bg-gray-700 text-white"
+                    : "text-gray-400 hover:bg-gray-800 hover:text-white-300"
+                }`}
+                onClick={() => setActiveMenu("search")}
               >
                 <svg
                   class="w-3.5 h-3.5"
@@ -118,7 +124,7 @@ const Navbar = () => {
                   <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
                 </svg>
                 Search a book
-              </a>
+              </div>
             </li>
           </ul>
         </nav>
