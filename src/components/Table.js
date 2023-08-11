@@ -1,6 +1,7 @@
 import React from "react";
 
 const Table = () => {
+  const headings = ["Name", "Created by", "API key", "Status", "Created"];
   return (
     <div className="w-full h-full p-6">
       <div className="w-full h-full">
@@ -48,50 +49,18 @@ const Table = () => {
                 <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                   <thead>
                     <tr>
-                      <th scope="col" class="px-6 py-3 text-left">
-                        <div class="flex items-center gap-x-2">
-                          <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                            Name
-                          </span>
-                        </div>
-                      </th>
-
-                      <th scope="col" class="px-6 py-3 text-left">
-                        <div class="flex items-center gap-x-2">
-                          <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                            Created by
-                          </span>
-                        </div>
-                      </th>
-
-                      <th scope="col" class="px-6 py-3 text-left">
-                        <div class="flex items-center gap-x-2">
-                          <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                            API Key
-                          </span>
-                        </div>
-                      </th>
-
-                      <th scope="col" class="px-6 py-3 text-left">
-                        <div class="flex items-center gap-x-2">
-                          <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                            Status
-                          </span>
-                        </div>
-                      </th>
-
-                      <th scope="col" class="px-6 py-3 text-left">
-                        <div class="flex items-center gap-x-2">
-                          <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                            Created
-                          </span>
-                        </div>
-                      </th>
-
+                      {headings.map((heading, index) => (
+                        <th scope="col" class="px-6 py-3 text-left">
+                          <div key={index} class="flex items-center gap-x-2">
+                            <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                              {heading}
+                            </span>
+                          </div>
+                        </th>
+                      ))}
                       <th scope="col" class="px-6 py-3 text-right"></th>
                     </tr>
                   </thead>
-
                   <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
                     <tr>
                       <td class="h-px w-px whitespace-nowrap">

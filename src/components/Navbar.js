@@ -77,7 +77,7 @@ const Navbar = ({ activeMenu, setActiveMenu }) => {
           <ul class="space-y-1.5">
             <li>
               <div
-                className={`flex items-center gap-x-3 py-2 px-2.5 text-sm rounded-md ${
+                className={`flex items-center gap-x-3 py-2 px-2.5 text-sm rounded-md cursor-pointer ${
                   activeMenu === "dashboard"
                     ? "bg-gray-700 text-white"
                     : "text-gray-400 hover:bg-gray-800 hover:text-white-300"
@@ -106,7 +106,7 @@ const Navbar = ({ activeMenu, setActiveMenu }) => {
             </li>
             <li>
               <div
-                className={`flex items-center gap-x-3 py-2 px-2.5 text-sm rounded-md ${
+                className={`flex items-center gap-x-3 py-2 px-2.5 text-sm rounded-md cursor-pointer ${
                   activeMenu === "search"
                     ? "bg-gray-700 text-white"
                     : "text-gray-400 hover:bg-gray-800 hover:text-white-300"
