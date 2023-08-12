@@ -3,7 +3,7 @@ import Row from "./Row.js";
 import NewRow from "./NewRow.js";
 
 const Table = () => {
-  const headings = ["Name", "Created by", "API key", "Status", "Created"];
+  const headings = ["Name", "Created by", "Status", "Created"];
 
   const [visibleNewRow, setVisibleNewRow] = useState(false);
   return (
