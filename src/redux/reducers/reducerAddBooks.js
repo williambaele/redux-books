@@ -6,7 +6,7 @@ const initialState = {
 };
 
 // HELPER
-const helperAddData = () => {
+const helperAddData = action => {
   return {
     id: uuiv4(),
     title: action.payload.title,
