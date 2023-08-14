@@ -1,24 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 
 const NewRow = () => {
+  const [author, setAuthor] = useState("");
+  const [title, setTitle] = useState("");
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <tr className="bg-gray-100">
       <td class="h-px w-px whitespace-nowrap">
         <div class="px-6 py-3">
-          <input
-            type="text"
-            class="text-sm text-gray-600 py-1 rounded-md outline-none w-28 pl-2"
-            placeholder="Name"
-          />
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              class="text-sm text-gray-600 py-1 rounded-md outline-none w-28 pl-2"
+              placeholder="Title"
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </form>
         </div>
       </td>
       <td class="h-px w-px whitespace-nowrap">
         <div class="px-6 py-3">
-          <input
-            type="text"
-            class="text-sm text-gray-600 py-1 rounded-md outline-none w-28 pl-2"
-            placeholder="Author"
-          />
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              class="text-sm text-gray-600 py-1 rounded-md outline-none w-28 pl-2"
+              placeholder="Author"
+              onChange={(e) => setAuthor(e.target.value)}
+            />
+          </form>
         </div>
       </td>
 
@@ -48,9 +61,13 @@ const NewRow = () => {
       </td>
       <td class="h-px w-px whitespace-nowrap">
         <div class="px-6 py-3">
-          <div class="py-1 px-2 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm ">
+          <button
+            onClick={handleSubmit}
+            type="submit"
+            class="py-1 px-2 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm "
+          >
             Save
-          </div>
+          </button>
         </div>
       </td>
     </tr>

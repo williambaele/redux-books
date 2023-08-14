@@ -13,18 +13,9 @@ const Row = () => {
       </td>
       <td class="h-px w-px whitespace-nowrap">
         <div class="px-6 py-3">
-          <div class="flex items-center gap-x-2">
-            <img
-              class="inline-block h-6 w-6 rounded-full"
-              src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80"
-              alt="Imag"
-            />
-            <div class="grow">
-              <span class="text-sm text-gray-600 dark:text-gray-400">
-                Christina Bersh
-              </span>
-            </div>
-          </div>
+          <span class="text-sm text-gray-600 dark:text-gray-400">
+            Christina Bersh
+          </span>
         </div>
       </td>
 
@@ -52,7 +43,7 @@ const Row = () => {
           </span>
         </div>
       </td>
-    <ActionsButton/>
+      <ActionsButton />
     </tr>
   );
 };

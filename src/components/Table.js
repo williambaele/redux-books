@@ -3,7 +3,7 @@ import Row from "./Row.js";
 import NewRow from "./NewRow.js";
 
 const Table = () => {
-  const headings = ["Name", "Created by", "Status", "Created"];
+  const headings = ["Name", "Author", "Status", "Created"];
 
   const [visibleNewRow, setVisibleNewRow] = useState(false);
   return (
@@ -66,7 +66,8 @@ const Table = () => {
                     </tr>
                   </thead>
                   <tbody class="divide-y divide-gray-200">
-                    {visibleNewRow && <NewRow />} <Row />
+                    {visibleNewRow && <NewRow />} 
+                    <Row />
                   </tbody>
                 </table>
 
