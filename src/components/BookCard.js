@@ -5,7 +5,7 @@ const BookCard = () => {
     "https://imgv2-1-f.scribdassets.com/img/document/290444689/original/b4be8acffc/1686862354?v=1";
 
   return (
-    <div className="grid w-full h-48 grid-cols-3 gap-2 p-4 bg-white rounded-md shadow-sm">
+    <div className="grid w-full h-48 grid-cols-3 gap-4 p-4 bg-white rounded-md shadow-sm">
       <div
         className="h-full rounded-md md:h-full"
         style={{
