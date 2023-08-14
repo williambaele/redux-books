@@ -1,12 +1,20 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { addBook } from "../redux/actions/actionAddBooks";
 
-const NewRow = () => {
-  const [author, setAuthor] = useState("");
-  const [title, setTitle] = useState("");
-  
+const NewRow = ({ libraryData, addBook }) => {
+  console.log(libraryData);
+
+  const initialState = {
+    title: "",
+    author: "",
+  };
+
+  const [newData, setNewData] = useState(initialState);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(title + " " + author)
+    addBook(newData);
   };
 
   return (
@@ -15,10 +23,13 @@ const NewRow = () => {
         <div class="px-6 py-3">
           <form onSubmit={handleSubmit}>
             <input
+              value={newData.title}
               type="text"
               class="text-sm text-gray-600 py-1 rounded-md outline-none w-28 pl-2"
               placeholder="Title"
-              onChange={(e) => setTitle(e.target.value)}
+              onChange={(e) =>
+                setNewData({ ...newData, title: e.target.value })
+              }
             />
           </form>
         </div>
@@ -27,10 +38,13 @@ const NewRow = () => {
         <div class="px-6 py-3">
           <form onSubmit={handleSubmit}>
             <input
+              value={newData.author}
               type="text"
               class="text-sm text-gray-600 py-1 rounded-md outline-none w-28 pl-2"
               placeholder="Author"
-              onChange={(e) => setAuthor(e.target.value)}
+              onChange={(e) =>
+                setNewData({ ...newData, author: e.target.value })
+              }
             />
           </form>
         </div>
@@ -75,4 +89,16 @@ const NewRow = () => {
   );
 };
 
-export default NewRow;
+const addStateToProps = (state) => {
+  return {
+    libraryData: state.library,
+  };
+};
+
+const addDispatchToProps = (dispatch) => {
+  return {
+    addBook: (param) => dispatch(addBook(param)),
+  };
+};
+
+export default connect(addStateToProps, addDispatchToProps)(NewRow);
