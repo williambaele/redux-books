@@ -6,6 +6,7 @@ const NewRow = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(title + " " + author)
   };
 
   return (
