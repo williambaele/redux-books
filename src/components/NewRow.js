@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { addBook } from "../redux/actions/actionAddBooks";
 
 
-const NewRow = ({ libraryData, addBook}) => {
+const NewRow = ({ libraryData, addBook, onNewDataAdded }) => {
   console.log(libraryData);
 
   const initialState = {

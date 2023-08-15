@@ -1,22 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Row from "./Row.js";
 import NewRow from "./NewRow.js";
+import { connect } from "react-redux";
 
 const Table = ({ libraryData }) => {
   const headings = ["Name", "Author", "Status", "Created"];
-
   const [visibleNewRow, setVisibleNewRow] = useState(false);
 
-  console.log(libraryData);
-  // //MAPING
-  // const displayData =
-  //   libraryData.length > 0 ? (
-  //     libraryData.map((data) => {
-  //       return <Row key={data.id} data={data} />;
-  //     })
-  //   ) : (
-  //     <div className="w-full bg-red-400">aucun livre</div>
-  //   );
+  let displayData;
+  if (libraryData === undefined) {
+    displayData = <div>Loading...</div>;
+  } else if (libraryData.length === 0) {
+    displayData = <div className="w-full bg-red-400">No books available</div>;
+  } else {
+    displayData = libraryData.map((data) => (
+      <Row key={data.id} data={data} />
+    ));
+  }
 
   return (
     <div className="w-full h-full p-6">
@@ -61,7 +61,6 @@ const Table = ({ libraryData }) => {
                     </div>
                   </div>
                 </div>
-
                 <table class="min-w-full divide-y divide-gray-200">
                   <thead>
                     <tr>
@@ -79,7 +78,7 @@ const Table = ({ libraryData }) => {
                   </thead>
                   <tbody class="divide-y divide-gray-200">
                     {visibleNewRow && <NewRow />}
-                    {/* {displayData & displayData} */}
+                    {displayData}
                   </tbody>
                 </table>
 
@@ -121,5 +120,10 @@ const Table = ({ libraryData }) => {
     </div>
   );
 };
+const mapStateToProps = (state) => {
+  return {
+    libraryData: state.library,
+  };
+};
 
-export default Table;
+export default connect(mapStateToProps)(Table);
