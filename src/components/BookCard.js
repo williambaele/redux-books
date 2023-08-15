@@ -7,9 +7,15 @@ const BookCard = ({ book }) => {
       ? book.volumeInfo.imageLinks.thumbnail
       : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
 
+  // DESCRIPTION
   let description =
     book.volumeInfo.description && book.volumeInfo.description
-      ? book.volumeInfo.description
+      ? book.volumeInfo.description.slice(0, 200)
+      : "No description";
+  // TITLE
+  let title =
+    book.volumeInfo.title && book.volumeInfo.title
+      ? book.volumeInfo.title.slice(0, 50)
       : "No description";
 
   return (
@@ -24,12 +30,11 @@ const BookCard = ({ book }) => {
       ></div>
 
       <div className="relative col-span-2 space-y-2 h-60">
-        <h2 className="text-3xl font-bold">{book.volumeInfo.title}</h2>
+        <h2 className="text-3xl font-bold">{title}</h2>
         <h3 className="text-2xl">{book.volumeInfo.authors}</h3>
         <p className="text-gray-500 text-md">{description}</p>
         <p className="text-gray-500 text-md">{book.volumeInfo.publishedDate}</p>
 
-        
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="22"
