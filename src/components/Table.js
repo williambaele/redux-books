@@ -2,10 +2,22 @@ import React, { useState } from "react";
 import Row from "./Row.js";
 import NewRow from "./NewRow.js";
 
-const Table = () => {
+const Table = ({ libraryData }) => {
   const headings = ["Name", "Author", "Status", "Created"];
 
   const [visibleNewRow, setVisibleNewRow] = useState(false);
+
+  console.log(libraryData);
+  // //MAPING
+  // const displayData =
+  //   libraryData.length > 0 ? (
+  //     libraryData.map((data) => {
+  //       return <Row key={data.id} data={data} />;
+  //     })
+  //   ) : (
+  //     <div className="w-full bg-red-400">aucun livre</div>
+  //   );
+
   return (
     <div className="w-full h-full p-6">
       <div className="w-full h-full">
@@ -66,8 +78,8 @@ const Table = () => {
                     </tr>
                   </thead>
                   <tbody class="divide-y divide-gray-200">
-                    {visibleNewRow && <NewRow />} 
-                    <Row />
+                    {visibleNewRow && <NewRow />}
+                    {/* {displayData & displayData} */}
                   </tbody>
                 </table>
 

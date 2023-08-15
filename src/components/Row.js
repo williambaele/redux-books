@@ -1,13 +1,13 @@
 import React from "react";
 import ActionsButton from "./ActionsButton";
 
-const Row = () => {
+const Row = ({data}) => {
   return (
     <tr>
       <td class="h-px w-px whitespace-nowrap">
         <div class="px-6 py-3">
           <span class="text-sm text-gray-600 dark:text-gray-400">
-            Streamlab
+            {data.author}
           </span>
         </div>
       </td>

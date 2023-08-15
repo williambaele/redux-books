@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addBook } from "../redux/actions/actionAddBooks";
 
-const NewRow = ({ libraryData, addBook }) => {
+
+const NewRow = ({ libraryData, addBook}) => {
   console.log(libraryData);
 
   const initialState = {
@@ -16,6 +17,8 @@ const NewRow = ({ libraryData, addBook }) => {
     e.preventDefault();
     addBook(newData);
   };
+
+  console.log(libraryData)
 
   return (
     <tr className="bg-gray-100">
