@@ -11,6 +11,7 @@ const helperAddData = (action) => {
     id: uuiv4(),
     title: action.payload.title,
     author: action.payload.author,
+    date: Date.now(),
   };
 };
 

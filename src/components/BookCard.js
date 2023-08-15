@@ -1,27 +1,35 @@
 import React from "react";
 
-const BookCard = () => {
-  const backgroundImageUrl =
-    "https://imgv2-1-f.scribdassets.com/img/document/290444689/original/b4be8acffc/1686862354?v=1";
+const BookCard = ({ book }) => {
+  //IMAGE
+  let thumbnail =
+    book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail
+      ? book.volumeInfo.imageLinks.thumbnail
+      : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
+
+  let description =
+    book.volumeInfo.description && book.volumeInfo.description
+      ? book.volumeInfo.description
+      : "No description";
 
   return (
-    <div className="grid w-full h-48 grid-cols-3 gap-4 p-4 bg-white rounded-md shadow-sm">
+    <div className="grid w-full grid-cols-3 gap-4 p-4 bg-white rounded-md shadow-sm">
       <div
-        className="h-full rounded-md md:h-full"
+        className="h-full rounded-md h-60"
         style={{
-          backgroundImage: `url(${backgroundImageUrl})`,
+          backgroundImage: `url(${thumbnail})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       ></div>
 
-      <div className="relative h-full col-span-2 space-y-2">
-        <h2 className="text-3xl font-large">Père riche, père pauvre</h2>
-        <p className="text-gray-500 text-md">
-          Le lorem ipsum est, en imprimerie, une suite de mots sans
-          signification utilisée à titre provisoire pour calibrer une mise en
-          page, le texte définitif venant remplacer le faux-texte dès qu'il.
-        </p>
+      <div className="relative col-span-2 space-y-2 h-60">
+        <h2 className="text-3xl font-bold">{book.volumeInfo.title}</h2>
+        <h3 className="text-2xl">{book.volumeInfo.authors}</h3>
+        <p className="text-gray-500 text-md">{description}</p>
+        <p className="text-gray-500 text-md">{book.volumeInfo.publishedDate}</p>
+
+        
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="22"

@@ -150,7 +150,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteBooks: () => dispatch(deleteBooks())
+    deleteBooks: () => dispatch(deleteBooks()),
   };
 };
 
