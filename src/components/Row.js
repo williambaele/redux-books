@@ -43,7 +43,7 @@ const Row = ({ data, deleteBook }) => {
           </span>
         </div>
       </td>
-      <td class="h-px w-px whitespace-nowrap">
+      <td class="h-px w-px">
         <div class="px-6 py-3">
           <svg
             onClick={() => deleteBook(data.id)}
@@ -63,10 +63,16 @@ const Row = ({ data, deleteBook }) => {
   );
 };
 
+const addStateToProps = (state) => {
+  return {
+    libraryData: state.library,
+  };
+};
+
 const addDispatchToProps = (dispatch) => {
   return {
     deleteBook: (id) => dispatch(deleteBook(id)),
   };
 };
 
-export default connect(addDispatchToProps)(Row);
+export default connect(addStateToProps, addDispatchToProps)(Row);

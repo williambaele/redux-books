@@ -97,6 +97,7 @@ const addStateToProps = (state) => {
 const addDispatchToProps = (dispatch) => {
   return {
     addBook: (param) => dispatch(addBook(param)),
+  
   };
 };
 

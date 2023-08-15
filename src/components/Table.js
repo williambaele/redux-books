@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Row from "./Row.js";
 import NewRow from "./NewRow.js";
 import { connect } from "react-redux";
+import { deleteBooks } from "../redux/actions/actionAddBooks";
 
-const Table = ({ libraryData }) => {
+const Table = ({ libraryData, deleteBooks }) => {
   const headings = ["Name", "Author", "Status", "Created"];
   const [visibleNewRow, setVisibleNewRow] = useState(false);
   const handleNewDataAdded = () => {
@@ -30,6 +31,7 @@ const Table = ({ libraryData }) => {
     deleteAllButton = (
       <button
         type="button"
+        onClick={() => deleteBooks()}
         class="py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm hover:bg-red-500 hover:text-white"
       >
         <svg
@@ -146,5 +148,10 @@ const mapStateToProps = (state) => {
     libraryData: state.library,
   };
 };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteBooks: () => dispatch(deleteBooks())
+  };
+};
 
-export default connect(mapStateToProps)(Table);
+export default connect(mapStateToProps, mapDispatchToProps)(Table);
