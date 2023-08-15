@@ -1,7 +1,6 @@
 import React from "react";
-import ActionsButton from "./ActionsButton";
 
-const Row = ({data}) => {
+const Row = ({ data }) => {
   return (
     <tr>
       <td class="h-px w-px whitespace-nowrap">
@@ -18,7 +17,6 @@ const Row = ({data}) => {
           </span>
         </div>
       </td>
-
       <td class="h-px w-px whitespace-nowrap">
         <div class="px-6 py-3">
           <span class="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
@@ -43,7 +41,21 @@ const Row = ({data}) => {
           </span>
         </div>
       </td>
-      <ActionsButton />
+      <td class="h-px w-px whitespace-nowrap">
+        <div class="px-6 py-3">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-trash hover:text-red-500 cursor-pointer"
+            viewBox="0 0 16 16"
+          >
+            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
+            <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
+          </svg>
+        </div>
+      </td>
     </tr>
   );
 };
