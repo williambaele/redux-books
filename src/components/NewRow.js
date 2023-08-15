@@ -13,6 +13,7 @@ const NewRow = ({ libraryData, addBook, onNewDataAdded }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addBook(newData);
+    onNewDataAdded();
   };
 
   return (

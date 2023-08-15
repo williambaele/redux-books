@@ -6,6 +6,9 @@ import { connect } from "react-redux";
 const Table = ({ libraryData }) => {
   const headings = ["Name", "Author", "Status", "Created"];
   const [visibleNewRow, setVisibleNewRow] = useState(false);
+  const handleNewDataAdded = () => {
+    setVisibleNewRow(false); // Hide the NewRow component
+  };
 
   //BOOKS DATA
   let displayData;
@@ -111,7 +114,9 @@ const Table = ({ libraryData }) => {
                     </tr>
                   </thead>
                   <tbody class="divide-y divide-gray-200">
-                    {visibleNewRow && <NewRow />}
+                    {visibleNewRow && (
+                      <NewRow onNewDataAdded={handleNewDataAdded} />
+                    )}
                     {displayData}
                   </tbody>
                 </table>

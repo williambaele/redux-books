@@ -1,6 +1,8 @@
 import React from "react";
+import { deleteBook } from "../redux/actions/actionAddBooks";
+import { connect } from "react-redux";
 
-const Row = ({ data }) => {
+const Row = ({ data, deleteBook }) => {
   return (
     <tr>
       <td class="h-px w-px whitespace-nowrap">
@@ -44,6 +46,7 @@ const Row = ({ data }) => {
       <td class="h-px w-px whitespace-nowrap">
         <div class="px-6 py-3">
           <svg
+            onClick={() => deleteBook(data.id)}
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"
@@ -60,4 +63,10 @@ const Row = ({ data }) => {
   );
 };
 
-export default Row;
+const addDispatchToProps = (dispatch) => {
+  return {
+    deleteBook: (id) => dispatch(deleteBook(id)),
+  };
+};
+
+export default connect(addDispatchToProps)(Row);
