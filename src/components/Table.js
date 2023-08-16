@@ -12,6 +12,7 @@ const Table = ({ libraryData, deleteBooks }) => {
   };
 
   
+  
   //BOOKS DATA
   let displayData;
   if (libraryData === undefined) {
