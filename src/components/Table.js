@@ -75,8 +75,8 @@ const Table = ({ libraryData, deleteBooks }) => {
         <div class="flex flex-col">
           <div class="-m-1.5 overflow-x-auto">
             <div class="p-1.5 w-full inline-block align-middle">
-              <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-slate-900 dark:border-gray-700">
-                <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700">
+              <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-slate-900">
+                <div class="px-6 py-4 gap-3 flex justify-between border-b border-gray-200 items-end">
                   <div>
                     <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
                       Your personnal library
@@ -112,39 +112,38 @@ const Table = ({ libraryData, deleteBooks }) => {
                     </div>
                   </div>
                 </div>
-                <table class="min-w-full divide-y divide-gray-200">
-                  <thead>
-                    <tr>
-                      {headings.map((heading, index) => (
-                        <th scope="col" class="px-6 py-3 text-left">
-                          <div key={index} class="flex items-center gap-x-2">
-                            <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                              {heading}
-                            </span>
-                          </div>
-                        </th>
-                      ))}
-                      <th scope="col" class="px-6 py-3 text-right"></th>
-                    </tr>
-                  </thead>
-                  <tbody class="divide-y divide-gray-200">
-                    {visibleNewRow && (
-                      <NewRow onNewDataAdded={handleNewDataAdded} />
-                    )}
-                    {displayData}
-                  </tbody>
-                </table>
+                <div className="overflow-auto">
+                  <table class="w-full divide-y divide-gray-200 table-auto overflow-scroll">
+                    <thead>
+                      <tr>
+                        {headings.map((heading, index) => (
+                          <th scope="col" class="px-6 py-3 text-left">
+                            <div key={index} class="flex items-center gap-x-2">
+                              <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                {heading}
+                              </span>
+                            </div>
+                          </th>
+                        ))}
+                        <th scope="col" class="px-6 py-3 text-right"></th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                      {visibleNewRow && (
+                        <NewRow onNewDataAdded={handleNewDataAdded} />
+                      )}
+                      {displayData}
+                    </tbody>
+                  </table>
+                </div>
 
-                <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-200 dark:border-gray-700">
-                  <div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                      <span class="font-semibold text-gray-800 dark:text-gray-200">
-                        {numberOfBooks}
-                      </span>{" "}
-                      results
-                    </p>
-                  </div>
-
+                <div class="px-6 py-4 gap-3 flex justify-between md:items-center border-t border-gray-200">
+                  <p class="text-sm text-gray-600 dark:text-gray-400">
+                    <span class="font-semibold text-gray-800 dark:text-gray-200">
+                      {numberOfBooks}
+                    </span>{" "}
+                    results
+                  </p>
                   <div>{deleteAllButton}</div>
                 </div>
               </div>

@@ -1,18 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Navbar = ({ activeMenu, setActiveMenu }) => {
   return (
     <nav class="w-full h-content">
-      <div class="sticky h-14 top-0 z-20 border-y px-4 sm:px-6 md:px-8 lg:hidden">
-        <div class="flex items-center py-4">
+      <div class="sticky h-14 top-0 z-20 border-y md:px-8 lg:hidden">
+        <div class="flex items-center py-4 gap-4 px-4">
           <button
-            type="button"
             class="text-gray-500 hover:text-gray-600"
             data-hs-overlay="#application-sidebar-dark"
             aria-controls="application-sidebar-dark"
             aria-label="Toggle navigation"
           >
-            <span class="sr-only">Toggle Navigation</span>
             <svg
               class="w-5 h-5"
               width="16"
@@ -26,36 +24,28 @@ const Navbar = ({ activeMenu, setActiveMenu }) => {
               />
             </svg>
           </button>
-
-          <ol
-            class="ml-3 flex items-center whitespace-nowrap min-w-0"
-            aria-label="Breadcrumb"
-          >
-            <li class="flex items-center text-sm text-gray-800 ">
-              Application Layout
-              <svg
-                class="flex-shrink-0 mx-3 overflow-visible h-2.5 w-2.5 text-gray-400"
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 1L10.6869 7.16086C10.8637 7.35239 10.8637 7.64761 10.6869 7.83914L5 14"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                />
-              </svg>
-            </li>
-            <li
-              class="text-sm font-semibold text-gray-800 truncate "
-              aria-current="page"
+          <div className="flex gap-4">
+            <p
+              className={`text-sm cursor-pointer  ${
+                activeMenu === "dashboard"
+                  ? "text-gray-800 font-bold"
+                  : "text-gray-600"
+              }`}
+              onClick={() => setActiveMenu("dashboard")}
             >
               Dashboard
-            </li>
-          </ol>
+            </p>
+            <p
+              className={`text-sm cursor-pointer  ${
+                activeMenu === "search"
+                  ? "text-gray-800 font-bold"
+                  : "text-gray-600"
+              }`}
+              onClick={() => setActiveMenu("search")}
+            >
+              Search
+            </p>
+          </div>
         </div>
       </div>
 
