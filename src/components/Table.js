@@ -30,6 +30,8 @@ const Table = ({ libraryData, deleteBooks }) => {
   }
   
 
+  
+
   //DELETE ALL BOOKS BTN
   let deleteAllButton;
   if (libraryData === undefined) {
