@@ -1,6 +1,17 @@
 import React from "react";
+import { addBook } from "../redux/actions/actionAddBooks";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
 const BookCard = ({ book }) => {
+
+  const dispatch = useDispatch()
+  const handleSave = (title, author, date) => {
+    const bookToSave = {title, author, date}
+    dispatch(addBook(bookToSave));
+    toast.success("Book saved!");
+
+  };
   //IMAGE
   let thumbnail =
     book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail
@@ -33,9 +44,11 @@ const BookCard = ({ book }) => {
         <h2 className="text-xl font-bold md:text-3xl">{title}</h2>
         <h3 className="text-xl md:text-2xl">{book.volumeInfo.authors}</h3>
         <p className="text-sm text-gray-500 md:text-lg">{description}</p>
-        <p className="text-sm text-gray-500 md:text-lg">{book.volumeInfo.publishedDate}</p>
-
+        <p className="text-sm text-gray-500 md:text-lg">
+          {book.volumeInfo.publishedDate}
+        </p>
         <svg
+          onClick={() => handleSave(title, book.volumeInfo.authors, Date.now())}
           xmlns="http://www.w3.org/2000/svg"
           width="30"
           height="30"

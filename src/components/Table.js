@@ -6,7 +6,7 @@ import { deleteBooks } from "../redux/actions/actionAddBooks";
 import { toast } from "react-toastify";
 
 const Table = ({ libraryData, deleteBooks }) => {
-  const headings = ["Name", "Author", "Status", "Created"];
+  const headings = ["Name", "Author", "Created"];
   const [visibleNewRow, setVisibleNewRow] = useState(false);
   const handleNewDataAdded = () => {
     setVisibleNewRow(false); // Hide the NewRow component
