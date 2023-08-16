@@ -11,9 +11,6 @@ const Table = ({ libraryData, deleteBooks }) => {
     setVisibleNewRow(false); // Hide the NewRow component
   };
 
-  
-  
-  
   //BOOKS DATA
   let displayData;
   if (libraryData === undefined) {
@@ -32,9 +29,6 @@ const Table = ({ libraryData, deleteBooks }) => {
     displayData = libraryData.map((data) => <Row key={data.id} data={data} />);
   }
   
-
-  
-
   //DELETE ALL BOOKS BTN
   let deleteAllButton;
   if (libraryData === undefined) {
