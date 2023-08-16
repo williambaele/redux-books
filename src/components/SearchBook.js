@@ -43,7 +43,7 @@ const SearchBook = () => {
                       onChange={(e) => setSearch(e.target.value)}
                       placeholder="Search a book"
                       type="text"
-                      className="py-2 pl-2 bg-gray-100 rounded-md outline-none text-md"
+                      className="w-full py-2 pl-2 bg-gray-100 rounded-md outline-none text-md"
                     />
                     <div class="flex-1 inline-flex gap-x-2">
                       <div class="cursor-pointer py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm">

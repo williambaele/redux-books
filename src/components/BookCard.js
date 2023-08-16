@@ -30,15 +30,15 @@ const BookCard = ({ book }) => {
       ></div>
 
       <div className="relative col-span-2 space-y-2 h-60">
-        <h2 className="text-3xl font-bold">{title}</h2>
-        <h3 className="text-2xl">{book.volumeInfo.authors}</h3>
-        <p className="text-gray-500 text-md">{description}</p>
-        <p className="text-gray-500 text-md">{book.volumeInfo.publishedDate}</p>
+        <h2 className="text-xl font-bold md:text-3xl">{title}</h2>
+        <h3 className="text-xl md:text-2xl">{book.volumeInfo.authors}</h3>
+        <p className="text-sm text-gray-500 md:text-lg">{description}</p>
+        <p className="text-sm text-gray-500 md:text-lg">{book.volumeInfo.publishedDate}</p>
 
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="22"
-          height="22"
+          width="30"
+          height="30"
           fill="#3b82f6"
           class="bi bi-plus-circle-fill absolute -top-2 right-0 cursor-pointer"
           viewBox="0 0 16 16"

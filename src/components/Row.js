@@ -2,7 +2,10 @@ import React from "react";
 import { deleteBook } from "../redux/actions/actionAddBooks";
 import { connect } from "react-redux";
 
+
 const Row = ({ data, deleteBook }) => {
+  const formattedDate = new Date(data.date).toLocaleString("fr");
+
   return (
     <tr>
       <td class="h-px w-px whitespace-nowrap">
@@ -39,7 +42,7 @@ const Row = ({ data, deleteBook }) => {
       <td class="h-px w-px whitespace-nowrap">
         <div class="px-6 py-3">
           <span class="text-sm text-gray-600 dark:text-gray-400">
-            28 Dec, 12:12
+            {formattedDate}
           </span>
         </div>
       </td>

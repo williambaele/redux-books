@@ -16,10 +16,19 @@ const Table = ({ libraryData, deleteBooks }) => {
   if (libraryData === undefined) {
     displayData = <div>Loading...</div>;
   } else if (libraryData.length === 0) {
-    displayData = <div className="w-full bg-red-400">No books available</div>;
+    displayData = (
+      <tr>
+        <td class="h-px w-px whitespace-nowrap">
+          <div class="px-6 py-3">
+            <p>No books available</p>
+          </div>
+        </td>
+      </tr>
+    );
   } else {
     displayData = libraryData.map((data) => <Row key={data.id} data={data} />);
   }
+  
 
   //DELETE ALL BOOKS BTN
   let deleteAllButton;
