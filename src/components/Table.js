@@ -11,6 +11,7 @@ const Table = ({ libraryData, deleteBooks }) => {
     setVisibleNewRow(false); // Hide the NewRow component
   };
 
+  
   //BOOKS DATA
   let displayData;
   if (libraryData === undefined) {
