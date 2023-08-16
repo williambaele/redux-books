@@ -1,6 +1,7 @@
 import React from "react";
 import { deleteBook } from "../redux/actions/actionAddBooks";
 import { connect } from "react-redux";
+import { toast } from "react-toastify";
 
 
 const Row = ({ data, deleteBook }) => {
@@ -49,7 +50,10 @@ const Row = ({ data, deleteBook }) => {
       <td class="h-px w-px">
         <div class="px-6 py-3">
           <svg
-            onClick={() => deleteBook(data.id)}
+           onClick={() => {
+            deleteBook(data.id); // Call the deleteBooks action
+            toast.success("Book deleted!");
+          }}
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addBook } from "../redux/actions/actionAddBooks";
+import { toast } from "react-toastify";
 
 const NewRow = ({ libraryData, addBook, onNewDataAdded }) => {
   const initialState = {
@@ -14,8 +15,9 @@ const NewRow = ({ libraryData, addBook, onNewDataAdded }) => {
     e.preventDefault();
     addBook(newData);
     onNewDataAdded();
+    toast.success("New book created!");
   };
-
+ 
   return (
     <tr className="bg-gray-100">
       <td class="h-px w-px whitespace-nowrap">
